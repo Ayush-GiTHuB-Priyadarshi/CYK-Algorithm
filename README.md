@@ -173,20 +173,6 @@ B → b
 Z → AA
 Y → BB
 ```
-Let me analyze the grammar and explain why it accepts/rejects different inputs:
-
-## Grammar Analysis
-
-The given grammar is:
-```
-S -> LY | BR | AY | BZ
-L -> AS
-R -> SZ
-A -> a
-B -> b
-Z -> AA
-Y -> BB
-```
 
 ### Accepted Case (4th input):
 ```
