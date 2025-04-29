@@ -1,4 +1,4 @@
-10
+8
 S -> AB;A -> a;B -> BC| b;C -> c
 PQ:a QR:b RT:c 
 P
@@ -31,11 +31,4 @@ S -> LY| BR| AY| BZ;L -> AS;R -> SZ;A -> a;B -> b;Z -> AA;Y -> BB
 PQ:b PR:a RT:a QT:a QS:b YA:a VW:a WZ:b ZA:b TU:a UX:a XY:a
 Q
 V
-S -> AB;A -> a;B -> BC| b;C -> c
-PQ:a QR:b RT:c
-P
-T
-S -> AB;A -> a;B -> BC| b;C -> c
-PQ:a QR:c RT:b
-P
-T
+
