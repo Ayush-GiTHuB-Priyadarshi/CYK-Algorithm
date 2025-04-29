@@ -2,7 +2,23 @@ from helpers import CFG
 from helpers import Graph
 
 def check_reachability(cfg, graph, start_vertex, end_vertex):
-    # TODO: Implement the function to check reachability
+    queue = [[start_vertex, '']]
+    valid_strings = []
+
+    while queue:
+        node, string = queue.pop(0)
+        
+        if node == end_vertex:
+            valid_strings.append(string)
+            continue
+
+        for edge in graph.get_edges().get(node, []):
+            next_node, label = edge
+            queue.append([next_node, string + label])
+
+    for string in valid_strings:
+        if cfg.cykParse(string):
+            return True
     return False
 
 def read_input(file_path):
@@ -27,6 +43,7 @@ def main(input_file, output_file):
     results = []
     for cfg_productions, graph_data, start_vertex, end_vertex in inputs:
         cfg = CFG(cfg_productions)
+        # print(cfg.parse_productions(cfg_productions))
         graph = Graph()
         edge_data = graph_data.split(' ')
         for edge in edge_data:
@@ -34,10 +51,13 @@ def main(input_file, output_file):
             dst = edge[1]
             label = edge[3]
             graph.add_edge(src, dst, label)
-        print(cfg.parse_productions(cfg_productions))
+
         reachable = check_reachability(cfg, graph, start_vertex, end_vertex)
+        
+        # print(reachable)
         results.append('Yes' if reachable else 'No')
-    
+    print(results)
+
     write_output(output_file, results)
 
 if __name__ == "__main__":
