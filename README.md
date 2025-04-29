@@ -1,1 +1,1 @@
-# -CYK-Algorithm
+# The Cocke-Kasami-Younger Algorithm 
