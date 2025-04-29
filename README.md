@@ -153,6 +153,57 @@ Yes
 No
 ```
 
+## Grammar Analysis and CNF Conversion
+
+### Original Grammar (Non-CNF)
+The grammar was originally specified as:
+```
+S → aSbb | T
+T → bTaa | S | ε
+```
+
+### Conversion to Chomsky Normal Form (CNF)
+The grammar was converted to CNF (without ε-productions) as:
+```
+S → LY | BR | AY | BZ
+L → AS
+R → SZ
+A → a
+B → b
+Z → AA
+Y → BB
+```
+Let me analyze the grammar and explain why it accepts/rejects different inputs:
+
+## Grammar Analysis
+
+The given grammar is:
+```
+S -> LY | BR | AY | BZ
+L -> AS
+R -> SZ
+A -> a
+B -> b
+Z -> AA
+Y -> BB
+```
+
+### Accepted Case (4th input):
+```
+PQ:a PR:a RT:a QT:a QS:b YA:a SV:a VW:a WZ:b ZA:b TU:a UX:a XY:a
+P
+A
+```
+
+### Rejected Case (5th input):
+```
+PQ:b PR:a RT:a QT:a QS:b YA:a SV:a VW:a WZ:b ZA:b TU:a UX:a XY:a
+P
+S
+```
+  
+Note - The code takes care of the looping case by rejecting it as in 1st 
+
 ## Technical Details
 
 ### CYK Algorithm Implementation
